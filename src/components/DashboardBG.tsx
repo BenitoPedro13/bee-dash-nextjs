@@ -6,8 +6,6 @@ import { addAlphaToHex } from "../../utils/utils";
 const DashboardBG = () => {
   const { color } = useDataStore((store) => store.session.user);
 
-  console.log("color", color);
-
   const hexColor =
     color === undefined ? "#FF8C00" : color.length !== 7 ? "#FF8C00" : color;
 
