@@ -9,7 +9,7 @@ const DashboardBG = () => {
   const hexColor =
     color === undefined ? "#FF8C00" : color.length !== 7 ? "#FF8C00" : color;
 
-  const finalColor = addAlphaToHex(hexColor, 0.1);
+  const finalColor = addAlphaToHex(hexColor, 0.05);
 
   return (
     <>
