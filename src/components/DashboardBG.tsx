@@ -1,11 +1,10 @@
-"use client";
-
-import useDataStore from "@/store";
 import { addAlphaToHex } from "../../utils/utils";
 
-const DashboardBG = () => {
-  const { color } = useDataStore((store) => store.session.user);
+interface DashboardBgProps {
+  color?:string;
+}
 
+const DashboardBG = ({color}:DashboardBgProps) => {
   const hexColor =
     color === undefined ? "#FF8C00" : color.length !== 7 ? "#FF8C00" : color;
 

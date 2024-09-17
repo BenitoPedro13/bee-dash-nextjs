@@ -16,6 +16,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
   const { color } = useDataStore((store) => store.session.user);
   const session = useDataStore((state) => state.session);
   const fetchData = useDataStore((state) => state.fetchData);
@@ -55,7 +56,7 @@ export default function RootLayout({
           <Header />
           <main>
             <SidenavDesktop />
-            <div className="relative bg-white overflow-hidden">
+            <div className="relative bg-white overflow-hidden min-h-screen">
               <div className="absolute z-10">
                 <DashboardBG color={color}/>
               </div>
