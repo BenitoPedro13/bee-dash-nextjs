@@ -5,6 +5,7 @@ import React from "react";
 import logo from "@/../public/bee-logo.svg";
 import house from "@/../public/house.svg";
 import folderstar from "@/../public/folder-star.svg";
+import creatorsIcon from "@/../public/creators.svg";
 import contact from "@/../public/contact.svg";
 import gear from "@/../public/gear.svg";
 import logout from "@/../public/logout.svg";
@@ -13,17 +14,12 @@ import Image from "next/image";
 import useDataStore, { baseApiUrl } from "@/store";
 
 import { destroyCookie } from "nookies";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const SidenavDesktop = () => {
   const session = useDataStore((state) => state.session);
+  const pathname = usePathname();
   const router = useRouter();
-
-  const windowIsUndefined = typeof window === "undefined";
-  // TODO: implement state to verify if url path is /dashboard
-  const isDashboard = windowIsUndefined
-    ? false
-    : window.location.pathname === "/campaigns";
 
   const handleLogout = () => {
     // Remove the authentication token or relevant cookie here
@@ -55,7 +51,7 @@ const SidenavDesktop = () => {
               <button
                 className={`btn btn-ghost box-border flex-shrink-0 w-12 h-12 flex flex-row justify-start items-start p-3 bg-transparent overflow-hidden relative content-start flex-nowrap gap-2 rounded-md`}
                 style={{
-                  backgroundColor: isDashboard ? "#F5F5F5" : "",
+                  backgroundColor: pathname === "/campaigns" ? "#F5F5F5" : "",
                 }}
               >
                 <Image
@@ -63,6 +59,22 @@ const SidenavDesktop = () => {
                   width={24}
                   height={24}
                   alt="Dashboard"
+                />
+              </button>
+            </Link>
+
+            <Link href="/creators">
+              <button
+                className={`btn btn-ghost box-border flex-shrink-0 w-12 h-12 flex flex-row justify-start items-start p-3 bg-transparent overflow-hidden relative content-start flex-nowrap gap-2 rounded-md`}
+                style={{
+                  backgroundColor: pathname === "/creators" ? "#F5F5F5" : "",
+                }}
+              >
+                <Image
+                  src={creatorsIcon}
+                  width={24}
+                  height={24}
+                  alt="Creators"
                 />
               </button>
             </Link>
