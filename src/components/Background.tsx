@@ -1,7 +1,6 @@
 "use client";
 
 import { useMediaQuery } from "@uidotdev/usehooks";
-import Image from "next/image";
 import React from "react";
 
 const MobileBG = () => {
