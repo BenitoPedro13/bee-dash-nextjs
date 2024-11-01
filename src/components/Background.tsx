@@ -782,7 +782,19 @@ const DesktopBG = () => {
 
 const Background = () => {
   const isDesktop = useMediaQuery("(min-width: 1024px)");
-  return isDesktop ? <DesktopBG /> : <MobileBG />;
+  return isDesktop ? (
+    <div>
+      <DesktopBG />
+      <DesktopBG />
+      <DesktopBG />
+    </div>
+  ) : (
+    <div>
+      <MobileBG />
+      <MobileBG />
+      <MobileBG />
+    </div>
+  );
 };
 
 export default Background;
